@@ -1,0 +1,41 @@
+﻿
+
+
+<div ng-controller="employeesController as employeesControllerVM">
+
+    <div class="jumbotron" >
+        <div class="row">
+            <h1>{{employeesControllerVM.message}}</h1>
+
+        </div>
+
+        <div id="TemplateHolderDiv">
+
+
+        </div>
+        <div class="row TeamInfoHolder" >
+            <div class="post-item" ng-repeat="employee in employeesControllerVM.employees">
+                <div class="post-featured-image">
+                    <img width="280" height="289" src="{{employee.ImageUrl}}" class="wp-post-image" alt="">
+                    <div class="team-name-position">
+                        <p class="team-name">{{employee.FirstName}} {{employee.LastName}}</p>
+                        <p class="team-position">{{employee.Tittle}}</p>
+                    </div>
+                </div>
+                <a href="#" class="post-content">
+                    <p class="post-Descripton">
+                        {{employee.Description}}
+                        <br />
+                        {{employee.HiringDate | jsDate | date:"yyyy-MM-dd" }}
+                        <br />
+                        {{employee.PhoneNumber}}
+                    </p>
+                </a>
+
+            </div>
+
+        </div>
+
+
+    </div>
+</div>

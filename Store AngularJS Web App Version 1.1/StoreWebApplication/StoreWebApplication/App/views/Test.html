@@ -1,0 +1,42 @@
+﻿<div ng-app="app">
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-route.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-messages.js"></script>
+    <script>
+        var app = angular.module('app', ["ngRoute"]);
+    </script>
+  
+
+    <div ng-controller="orderFormController">
+        Item1<input type="text" name="item1" ng-model='data.item1'><p></p>
+        Item2 <input type="text" name="item2" ng-model='data.item2'><p></p>
+        Item3 <input type="text" name="item3" ng-model='data.item3'><p></p>
+        Item4 <input type="text" name="item4" ng-model='data.item4'><p></p>
+        Item5 <input type="text" name="item5" ng-model='data.item5'><p></p>
+        <button type="button" ng-click='saveAll()'>SAVE ORDER</button>
+    </div>
+   
+    <script>
+          Myapp.controller('orderFormController', ['$scope', '$http', function ($scope, $http) {
+
+              var data = {};
+              $scope.data = data;
+              $scope.saveAll = function () {
+                  alert(data);
+                  $http.post("order/save/", data
+                  ).success(function (res, status, headers, config) {
+                      if (res == 'success') {
+                          $scope.message = res;
+                      }
+                      else {
+                          $scope.message = res;
+                      }
+                  }).error(function (res, status) {
+                      $scope.message = res;
+                  });
+              }
+
+          }
+    </script>
+</div>

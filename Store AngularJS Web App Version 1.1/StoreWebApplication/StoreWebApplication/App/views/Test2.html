@@ -1,0 +1,25 @@
+﻿
+      
+        <div ng-controller="TestCtrl">
+            <h3>
+                {{message}}
+            </h3>
+            <hr />
+            <div>
+                First Name:
+                <input type="text" placeholder="Enter your name" ng-model="details.firstName">
+                Last Name:
+                <input type="text" placeholder="Enter your last name" ng-model="details.lastName">
+            </div>
+            <hr />
+            <div>
+                Mobile Number:
+                <input type="text" placeholder="Enter your mobile number" ng-model="details.mobile">
+                EmailId:
+                <input type="text" placeholder="Enter your email id" ng-model="details.email">
+            </div>
+            <input type="button" ng-click="SendData(details)" value="Submit" />
+            <hr />
+            <h4 style="color:blueviolet">{{value}}</h4>
+        </div>
+    

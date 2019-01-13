@@ -1,0 +1,129 @@
+﻿
+<header>
+
+    <link href="../../Styles/Phone.css" rel="stylesheet" />
+</header>
+
+<div ng-controller="phoneController as phoneControllerVM">
+    <h2>{{phoneControllerVM.message}}</h2>
+    <div class="jumbotron myFilterHolder">
+
+
+        <form name="phoneControllerVM.FrmPhoneSearchFilter" id="FrmPhoneSearchFilter" data-ns-form="formData">
+            <div class="row">
+                <div class="col-xs-5 col-sm-4 col-md-2"> <label>Name:</label></div>
+                <div class="col-xs-7 col-sm-6 col-md-4 ">
+                    <div class="controlHolder"><input type="text" name="productName" ng-model="phoneControllerVM.Name" id="productName" placeholder="Type part of name" class="form-control" /></div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-5 col-sm-4 col-md-2"> <label>Operating System:</label></div>
+                <div class="col-xs-7 col-sm-6 col-md-4">
+                    <ul class="controlHolder">
+                        <li ng-repeat="phone in phoneControllerVM.phones.OSs">
+
+                            <input type="checkbox" name="OS[]" ng-model="phoneControllerVM.OS[$index]" ng-true-value="{{phone.val}}" ng-false-value="'false'" value="{{phone.val}}">
+                            <span>{{phone.n}} </span>
+                        </li>
+
+                    </ul>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col-xs-5 col-sm-4 col-md-2"> <label>Brand:</label></div>
+                <div class="col-xs-7 col-sm-6 col-md-4">
+                    <ul class="controlHolder">
+                        <li ng-repeat="phone in phoneControllerVM.phones.Brds">
+
+                            <input type="checkbox" name="Brd[]" ng-model="phoneControllerVM.Brd[$index]" ng-true-value="{{phone.val}}" ng-false-value="'false'" value="{{phone.val}}">
+                            <span>{{phone.n}}</span>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-5 col-sm-4 col-md-2"> <label>Price Range:</label></div>
+                <div class="col-xs-7 col-sm-6 col-md-4">
+                    <ul class="controlHolder BorderLstChild">
+                        <li>
+                            <span>Minimum </span>
+                            <select ng-model="phoneControllerVM.minPrice" name="minPrice">
+                                <option value="" selected>none</option>
+                                <option value="300">300</option>
+                                <option value="400">400</option>
+                                <option value="500">500</option>
+                                <option value="600">600</option>
+                            </select>
+
+                        </li>
+                        <li> &nbsp; to &nbsp;</li>
+                        <li>
+                            <span>Maximum </span>
+                            <select ng-model="phoneControllerVM.maxPrice" name="maxPrice">
+                                <option value="">none</option>
+                                <option value="700">700</option>
+                                <option value="800">800</option>
+                                <option value="900">900</option>
+                                <option value="1000">1000</option>
+                            </select>
+
+                        </li>
+                    </ul>
+
+                </div>
+
+            </div>
+
+
+            <div class="row">
+
+
+                <div class="col-xs-5 col-sm-4 col-md-2"> <label></label></div>
+                <div class="col-xs-7 col-sm-6 col-md-4">
+                    <ul class="controlHolder lastRow">
+                        <li>
+                            <button type="button" ng-click="phoneControllerVM.SearchPhoneByFilter()" class="btn btn-primary">Search!</button>
+                        </li>
+                        <li>
+                            <button ng-click="phoneControllerVM.resetForm()" class="form-control"><span class="glyphicon glyphicon-remove"></span>  Remove Filter</button>
+
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </form>
+
+        <!--<ul ng-repeat="phone in phoneControllerVM.filteredPhones">
+            <li><b>ProductID:</b>{{phone.Id}}</li>
+            <li><b>Name:</b>{{phone.Name}}</li>
+            <li><b>Brand:</b>{{phone.Brand}}</li>
+            <li><b>Price:</b>${{phone.Price}}</li>
+        </ul>-->
+    </div>
+
+    <div id="PhoneListContainerDiv">
+
+    </div>
+
+    <!--<table>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Brand</th>
+            <th>Device</th>
+            <th>Publish Date</th>
+        </tr>
+        <tr ng-repeat="phone in phoneControllerVM.phones.DataArr">
+            <td><a href="#/phone/{{phone.Id}}">{{phone.Id}} -- {{$index}}</a></td>
+            <td>{{phone.Name}}</td>
+            <td>{{phone.Brand}}</td>
+            <td>{{phone.PrType}}</td>
+            <td>{{phone.PublishDate }}</td>
+        </tr>
+    </table>-->
+
+</div>

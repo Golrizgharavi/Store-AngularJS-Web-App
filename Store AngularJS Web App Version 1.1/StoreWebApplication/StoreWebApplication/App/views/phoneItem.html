@@ -1,0 +1,142 @@
+﻿
+<header>
+    <link href="../../Styles/PhoneItem.css" rel="stylesheet" />
+</header>
+<div ng-controller="phoneItemController as phoneItemControllerVM">
+
+    <h1 class="ItemMainTittle">{{phoneItemControllerVM.message}}</h1>
+    <div class="jumbotron">
+        <div class="row">
+            <style>
+              
+            </style>
+
+            <div class="col-md-6">
+                <div class="Slider-container" id="ItemSliderContainer">
+                    <div class="mySlidesHolder">
+                        <span class="CircleOffer" ng-if="phoneItemControllerVM.phoneItem.Sale ==='True'">SPECIAL OFFER</span>
+                        <img class="mySlides img-responsive" src="{{phoneItemControllerVM.phoneItem.Img1}}" style="width:350px">
+                        <img class="mySlides img-responsive" src="{{phoneItemControllerVM.phoneItem.Img2}}" style="width:350px">
+                        <img class="mySlides img-responsive" src="{{phoneItemControllerVM.phoneItem.Img3}}" style="width:350px">
+                    </div>
+                    <ul class="ImgSelectionHolder">
+                        <li class="ImgSelection col-xs-4"><img class="img-responsive ImgItem Selected" src="{{phoneItemControllerVM.phoneItem.Img1}}" onclick="myImageSlider.MoveSlide(1)"></li>
+                        <li class="ImgSelection col-xs-4"><img class="img-responsive ImgItem" src="{{phoneItemControllerVM.phoneItem.Img2}}" onclick="myImageSlider.MoveSlide(2)"></li>
+                        <li class="ImgSelection col-xs-4"><img class="img-responsive ImgItem" src="{{phoneItemControllerVM.phoneItem.Img3}}" onclick="myImageSlider.MoveSlide(3)"></li>
+                    </ul>
+                </div>
+
+            </div>
+
+
+
+            <div class="ItemImgHolder col-md-6">
+                <h2 class="ItemDetail ItemTittle">{{phoneItemControllerVM.phoneItem.Brand}} {{phoneItemControllerVM.phoneItem.Name}}</h2>
+
+                <div id="PriceContainer">
+                    <span ng-if="phoneItemControllerVM.phoneItem.Sale ==='True'">
+                        <span class="ItemDetail ItemPrice"><h2><del>Price: ${{phoneItemControllerVM.phoneItem.Price}}</del></h2></span>
+                        <span class="ItemDetail ItemPrice"><h2 class="RedSkin">Promotion: ${{phoneItemControllerVM.phoneItem.DPrice}}</h2></span>
+                    </span>
+
+
+                    <span class="ItemDetail ItemPrice" ng-if="phoneItemControllerVM.phoneItem.Sale ==='False'"><h2>Price: ${{phoneItemControllerVM.phoneItem.Price}}</h2></span>
+                </div>
+
+                <span class="ItemDetail">
+                    <i class="glyphicon glyphicon-check" ng-if="phoneItemControllerVM.phoneItem.Available ==='True'"> Available</i>
+
+                    <i class="glyphicon glyphicon-unchecked" ng-if="phoneItemControllerVM.phoneItem.Available === 'False'"> Unavailable</i>
+                </span>
+                <span class="ItemDetail ItemPubDate" ui-date-format="MMMM d, y" ng-if="phoneItemControllerVM.phoneItem.PublishDate !=null"><b>Publish Date:</b> {{phoneItemControllerVM.phoneItem.PublishDate | date: 'MMMM d, y' }}</span>
+                <div class="row myFeatuerRow">
+                    <ul class="colorWrapper col-md-12">
+                        <li class="colorItem col-xs-3"><b>Colors:</b></li>
+                        <li class="colorItem col-xs-1"><img class="img-responsive ColorItemImg ItemSelected" src="/Images/Colors/color-1.gif" width="32px" ng-click="phoneItemControllerVM.GetPhoneColor('black',1)" /></li>
+                        <li class="colorItem col-xs-1"><img class="img-responsive ColorItemImg" src="/Images/Colors/color-3.gif" width="32px" ng-click="phoneItemControllerVM.GetPhoneColor('pink',2)" /></li>
+                        <li class="colorItem col-xs-1"><img class="img-responsive ColorItemImg" src="/Images/Colors/color-4.gif" width="32px" ng-click="phoneItemControllerVM.GetPhoneColor('gold',3)" /></li>
+                    </ul>
+                </div>
+                <div class="row myFeatuerRow lastChildBorder">
+                    <ul class="MemoryWrapper col-md-12">
+                        <li class="MemItem col-xs-3"><b>Memory:</b></li>
+                        <li class="MemItem col-xs-2"><span class="MemItemInn ItemSelected" title="Back End is Not Completed:  SQL table is not set yet, data is coming staticly. but Ajax is sending Memory ID an Phone Id!! :)" ng-click='phoneItemControllerVM.GetPhoneMemory(40,1)' >128 GB</span></li>
+                        <li class="MemItem col-xs-2"><span class="MemItemInn" title="Back End is Not Completed: SQL table is not set yet, data is coming staticly. but Ajax is sending Memory ID an Phone Id!! :)" ng-click="phoneItemControllerVM.GetPhoneMemory(50,2)" >512 GB</span></li>
+
+                    </ul>
+                </div>
+                <span class="ItemDetail ItemSummery"><b>Featurs:</b> {{phoneItemControllerVM.phoneItem.Des }}<span>{{phoneItemControllerVM.phoneItem.Summery }}</span></span>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="row">
+
+        <div class="col-md-12">
+
+        </div>
+
+    </div>
+    <!--<ul>
+        <li><b>ProductID:</b>{{phoneItemControllerVM.phoneItem.Id}}</li>
+        <li><b>Name:</b>{{phoneItemControllerVM.phoneItem.Name}}</li>
+        <li><b>Brand:</b>{{phoneItemControllerVM.phoneItem.Brand}}</li>
+        <li><b>Price:</b>${{phoneItemControllerVM.phoneItem.Price}}</li>
+    </ul>-->
+
+
+    <script>
+
+
+        var myImageSlider = new ImageSlider();
+
+
+        function ImageSlider() {
+
+            var mySlides = document.getElementsByClassName("mySlides");
+            var ImgSelections = document.getElementsByClassName("ImgItem");
+            var slideIndex = 1;
+            var $this = this;
+
+
+            this.SlidesOff = function (side) {
+                var i;
+                for (i = 0; i < mySlides.length; i++) {
+                    $(mySlides[i]).animate({ opacity: '0' });
+                    mySlides[i].style.display = "none";
+                }
+
+
+
+            };
+
+            this.MoveSlide = function (n) {
+                this.ShowSlide(slideIndex = n);
+            };
+
+            this.ShowSlide = function (n) {
+
+
+                if (n > mySlides.length) { slideIndex = 1 };
+                if (n < 1) { slideIndex = mySlides.length };
+
+                this.SlidesOff();
+
+                for (i = 0; i < ImgSelections.length; i++) {
+                    ImgSelections[i].className = ImgSelections[i].className.replace(" Selected", "");
+                }
+                mySlides[slideIndex - 1].style.display = "block";
+                $(mySlides[slideIndex - 1]).animate({ opacity: '1' });
+                ImgSelections[slideIndex - 1].className += " Selected";
+
+          
+            };
+
+           this.ShowSlide(slideIndex);
+
+        }
+
+
+    </script>
+</div>

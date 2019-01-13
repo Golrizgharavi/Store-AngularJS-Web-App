@@ -1,0 +1,191 @@
+﻿li {
+    display: inline-block;
+    direction: rtl;
+
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    text-align: left;
+}
+ .h2, .h3, h2, h3 {
+    margin: 0
+}
+
+
+.ItemDetail {
+    display: block;
+    padding-bottom: 5px;
+    margin: 0;
+
+}
+
+.ItemDetail b{
+
+    font-size:14px;
+}
+.ItemTittle {
+    font-weight: bolder;
+}
+    .ItemDetail i {
+        font-style: italic;
+    }
+
+.ItemPrice h2 {
+    color: #24a000;
+    font-weight: bolder;
+}
+.RedSkin {
+    color: #b01414 !important;
+}
+
+.ItemMainTittle {
+    font-weight: bolder;
+    font: 25px;
+}
+
+.Slider-container {
+    display: inline-block;
+    text-align: center;
+}
+
+.mySlides {
+    display: none;
+    opacity:0;
+}
+
+.mySlidesHolder {
+    border: 1px solid #808080;
+    border-radius: 5px;
+    position: relative;
+    height: 100%;
+    display: inline-block;
+    box-shadow: inset 0 0 10px #808080;
+    padding: 10px;
+    background-color: #fff;
+}
+
+.ImgSelectionHolder {
+    display: inline-block;
+    text-align: center;
+    direction: ltr;
+}
+
+.ImgSelection {
+    display: inline-block;
+    padding: 10px;
+}
+
+
+    .ImgSelection img {
+        width: 108px;
+        box-shadow: inset 0 0 2px #ddd;
+        border: 1px solid #ddd;
+        border-radius: 2px;
+        padding: 2px;
+        background-color: #ddd;
+        cursor: pointer;
+    }
+
+.Selected {
+    border-color: #808080 !important;
+    /*box-shadow: inset 0 0 10px #808080 !important;*/
+    box-shadow: 0 0 2px 0 rgba(4,0,0,.12), 0 2px 2px 0 rgba(0,0,0,.24) !important;
+}
+
+.CircleOffer {
+    position: absolute;
+    height: 100px;
+    width: 100px;
+    background-color: #24a000;
+    border-radius: 50%;
+    display: inline-block;
+    color: #fff;
+    font-weight: bolder;
+    font-size: 16px;
+    right: -40px;
+    top: -40px;
+    padding: 30px 20px;
+    text-align: center;
+    z-index:200;
+}
+
+.MemoryWrapper,.colorWrapper {
+
+}
+
+.MemItem,.colorItem {
+    display: inline-block;
+    padding: 3px;
+    direction: ltr;
+}
+
+.MemItem b, .colorItem  b{
+    display:inline-block;
+    margin-top:5px;
+    font-size:14px;
+
+}
+
+.colorItem img {
+        border-radius: 3px;
+        padding: 1px;
+        border: 1px solid #ccc;
+        background-color: #fff;
+        cursor: pointer;
+    }
+
+.ItemSelected {
+    border: 2px solid green !important;
+    box-shadow: 0 0 2px 0 rgba(4,0,0,.12), 0 2px 2px 0 rgba(0,0,0,.24) !important;
+}
+
+
+.MemItem .MemItemInn {
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 3px;
+    border: 1px solid #ccc;
+    font-weight: bold;
+    background-color: #fff;
+    color: #4b4a4a;
+    box-shadow: inset 0 0 5px #ccc;
+    cursor: pointer;
+    font-size: 14px;
+    text-align: center;
+}
+
+.ItemSummery{padding:10px 0;}
+.ItemSummery span{
+    display:block;
+    }
+.ItemPubDate {
+        padding-bottom: 10px;
+    }
+
+.myFeatuerRow {
+    padding: 10px 0;
+    border-top: 1px dashed #ddd;
+}
+.lastChildBorder {
+
+    border-bottom: 1px dashed #ddd ;
+}
+
+@media screen and (max-width: 400px) {
+    .MemItem .MemItemInn {
+        font-size: 12px;
+        padding: 0px;
+
+    }
+
+    .ItemDetail b {
+        font-size: 12px;
+    }
+
+    .MemItem b, .colorItem b {
+        font-size: 12px;
+    }
+}

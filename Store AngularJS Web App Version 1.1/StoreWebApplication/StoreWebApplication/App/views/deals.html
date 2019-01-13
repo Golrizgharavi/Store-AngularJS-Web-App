@@ -1,0 +1,126 @@
+﻿
+<header>
+
+    <link href="../../Styles/Phone.css" rel="stylesheet" />
+</header>
+
+<div ng-controller="dealsController as dealsControllerVM">
+    <h2>{{dealsControllerVM.message}}</h2>
+    <div class="jumbotron myFilterHolder">
+
+
+        <form name="tabletControllerVM.FrmPhoneSearchFilter" id="FrmPhoneSearchFilter" data-ns-form="formData">
+            <div class="row">
+                <div class="col-xs-5 col-sm-4 col-md-2"> <label>Name:</label></div>
+                <div class="col-xs-7 col-sm-6 col-md-4 ">
+                    <div class="controlHolder"><input type="text" name="productName" ng-model="dealsControllerVM.Name" id="productName" placeholder="Type part of name" class="form-control" /></div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-5 col-sm-4 col-md-2"> <label>Device Type:</label></div>
+                <div class="col-xs-7 col-sm-6 col-md-4">
+                    <ul class="controlHolder">
+                        <li>
+                            <select ng-model="dealsControllerVM.DevType" name="DevType">
+                                <option value="" selected>none</option>
+                                <option ng-repeat="device in dealsControllerVM.devices.DT" value="{{device.val}}">{{device.n}}</option>
+                                
+                                
+                            </select>
+                        </li>
+                      
+
+                    </ul>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col-xs-5 col-sm-4 col-md-2"> <label>Operating System:</label></div>
+                <div class="col-xs-7 col-sm-6 col-md-4">
+                    <ul class="controlHolder">
+                        <li ng-repeat="device in dealsControllerVM.devices.OSs">
+
+                            <input type="checkbox" name="OS[]" ng-model="dealsControllerVM.OS[$index]" ng-true-value="{{device.val}}" ng-false-value="'false'" value="{{device.val}}">
+                            <span>{{device.n}} </span>
+                        </li>
+
+                    </ul>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col-xs-5 col-sm-4 col-md-2"> <label>Brand:</label></div>
+                <div class="col-xs-7 col-sm-6 col-md-4">
+                    <ul class="controlHolder">
+                        <li ng-repeat="device in dealsControllerVM.devices.Brds">
+
+                            <input type="checkbox" name="Brd[]" ng-model="dealsControllerVM.Brd[$index]" ng-true-value="{{device.val}}" ng-false-value="'false'" value="{{device.val}}">
+                            <span>{{device.n}}</span>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-5 col-sm-4 col-md-2"> <label>Price Range:</label></div>
+                <div class="col-xs-7 col-sm-6 col-md-4">
+                    <ul class="controlHolder BorderLstChild">
+                        <li>
+                            <span>Minimum </span>
+                            <select ng-model="dealsControllerVM.minPrice" name="minPrice">
+                                <option value="" selected>none</option>
+                                <option value="300">300</option>
+                                <option value="400">400</option>
+                                <option value="500">500</option>
+                                <option value="600">600</option>
+                            </select>
+
+                        </li>
+                        <li> &nbsp; to &nbsp;</li>
+                        <li>
+                            <span>Maximum </span>
+                            <select ng-model="dealsControllerVM.maxPrice" name="maxPrice">
+                                <option value="">none</option>
+                                <option value="700">700</option>
+                                <option value="800">800</option>
+                                <option value="900">900</option>
+                                <option value="1000">1000</option>
+                            </select>
+
+                        </li>
+                    </ul>
+
+                </div>
+
+            </div>
+
+
+            <div class="row">
+
+
+                <div class="col-xs-5 col-sm-4 col-md-2"> <label></label></div>
+                <div class="col-xs-7 col-sm-6 col-md-4">
+                    <ul class="controlHolder lastRow">
+                        <li>
+                            <button type="button" ng-click="dealsControllerVM.SearchPhoneByFilter()" class="btn btn-primary">Search!</button>
+                        </li>
+                        <li>
+                            <button ng-click="dealsControllerVM.resetForm()" class="form-control"><span class="glyphicon glyphicon-remove"></span>  Remove Filter</button>
+
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </form>
+
+
+    </div>
+
+    <div id="ListContainerDiv">
+
+    </div>
+
+
+</div>

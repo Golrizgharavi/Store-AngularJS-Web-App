@@ -1,0 +1,149 @@
+﻿<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+    <link href="../Content/bootstrap.css" rel="stylesheet" />
+    <link href="../Content/custom.css" rel="stylesheet" />
+
+    <link href="../Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="../Styles/MainCSS.css" rel="stylesheet" />
+
+    <script src="../Scripts/jquery-1.9.1.js"></script>
+    <script src="../Scripts/bootstrap.js"></script>
+    <script src="../Scripts/angular.min.js"></script>
+    <script src="../Scripts/angular-route.min.js"></script>
+
+
+    <script src="/App/app.js"></script>
+    <script src="/App/controllers/contactController.js"></script>
+    <script src="controllers/createPhoneController.js"></script>
+    <script src="controllers/updatePhoneController.js"></script>
+    <script src="/App/services/employeeService.js"></script>
+    <script src="/App/controllers/employeesController.js"></script>
+    <script src="/App/controllers/homeController.js"></script>
+    <script src="services/productService.js"></script>
+    <script src="controllers/phoneController.js"></script>
+    <script src="controllers/tabletController.js"></script>
+    <script src="/App/controllers/TestJS2.js"></script>
+    <script src="controllers/phoneItemController.js"></script>
+    <script src="controllers/tabletItemController.js"></script>
+    <script src="controllers/dealsController.js"></script>
+</head>
+<body ng-controller="mainController" >
+
+    <div ng-app="views">
+
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a href="#/" target="_blank" class="text-uppercase">Home</a></li>
+                        <li><a href="#/phone" target="_blank" class="text-uppercase">Phone</a></li>
+                        <li><a href="#/tablet" target="_blank" class="text-uppercase">Tablet</a></li>
+                    </ul>
+
+                </div>
+            </div>
+
+        </div>
+
+        <div class="container body-content">
+            <div ng-view>
+
+            </div>
+
+
+        </div>
+        <footer class="page-footer font-small teal pt-4 myFooter" id="myFooterID">
+            <div class="container-fluid text-center text-md-left">
+
+                <!-- Grid row -->
+                <div class="row">
+
+                    <!-- Grid column -->
+                    <div class="col-md-6 mt-md-0 mt-3">
+
+                        <!-- Content -->
+                        <h3 class="text-uppercase font-weight-bold">About Us</h3>
+                        <p>
+                            Our responsibility extends beyond the boardroom. Through community projects, disaster relief efforts, and green initiatives, the planet and our fellow human beings are always top of mind.
+                        </p>
+                        <hr class="clearfix w-100 d-md-none pb-3">
+                        <h3 class="text-uppercase font-weight-bold">Contact Us</h3>
+                        <p>
+                            <i class="glyphicon glyphicon-home"></i>&nbsp; Gaithersburg, MD 20877, US
+                        </p>
+                        <p>
+                            <i class="glyphicon glyphicon-envelope "></i>&nbsp; info@example.com
+                        </p>
+                        <p>
+                            <i class="glyphicon glyphicon-phone"></i>&nbsp; + 01 234 567 88
+                        </p>
+                        <p>
+                            <i class="glyphicon glyphicon-send"></i>&nbsp; + 01 234 567 89
+                        </p>
+                        <p class="SMHoleder">
+                            <a href="javascript:void(0)" class="SocialMedia">
+                                <i class="fb-ic"> </i>
+                            </a>
+                          
+                            <a href="javascript:void(0)" class="SocialMedia">
+                                <i class="tw-ic"> </i>
+                            </a>
+                           
+                            <a href="javascript:void(0)" class="SocialMedia">
+                                <i class="youtube-ic"> </i>
+                            </a>
+                          
+                            <a href="javascript:void(0)" class="SocialMedia">
+                                <i class="insta-ic"> </i>
+                            </a>
+                           
+                        </p>
+                    </div>
+                    <!-- Grid column -->
+                    <!-- Grid column -->
+                    <div class="col-md-6 mb-md-0 mb-3">
+
+                        <!-- Content -->
+                        <h3 class="text-uppercase font-weight-bold">Direction</h3>
+                        <p><iframe src="https://www.google.com/maps/embed?pb=!1m23!1m12!1m3!1d49514.650434503266!2d-77.21453575463363!3d39.136839160663115!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m8!3e6!4m0!4m5!1s0x89b7d2aef3bee0bb%3A0xc515b08522f2b0b0!2sbest+buy+gaithersburg!3m2!1d39.116123!2d-77.186998!5e0!3m2!1sen!2sus!4v1547422460974" width="100%" height="300" frameborder="0" style="border:0" allowfullscreen></iframe></p>
+                       
+                    </div>
+                    <!-- Grid column -->
+
+                </div>
+                <!-- Grid row -->
+
+            </div>
+            <!-- Footer Text -->
+            <!-- Copyright -->
+            <div class="footer-copyright text-center py-3">
+                <hr class="clearfix w-100 d-md-none pb-3">
+                <p>&copy;2018- <span id="currentYear"></span> Micreez Angular JS App</p>
+            </div>
+
+        </footer>
+    </div>
+
+    <script>
+        var CurrentYear = document.getElementById("currentYear");
+        CurrentYear.innerHTML = new Date().getFullYear();
+    </script>
+</body>
+
+</html>

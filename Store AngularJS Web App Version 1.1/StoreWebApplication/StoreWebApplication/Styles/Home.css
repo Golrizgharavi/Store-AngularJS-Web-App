@@ -1,0 +1,358 @@
+﻿
+
+.MainHeader{
+
+    position:relative;
+}
+
+.MainHeader .MainHeaderInn {
+    /*background-image: url('../Images/WebsiteHeader 1139w.jpg');*/
+    /*background-image: url(../Images/WebsiteHeader 1139w.jpg);
+    width: 100%;
+    height: 500px;
+    background-size: contain;
+    background-position: center top;
+    background-repeat: no-repeat;*/
+}
+
+    .MainHeaderInn img {
+        width: 100%;
+        margin-left:auto;
+        margin-right:auto;
+    }
+
+/*----------Header Slider-----------*/
+.Slider-container {
+    position: relative;
+    width: 800px;
+    min-height: 500px;
+    overflow: hidden;
+}
+
+.myHeaderSlides {
+    display: none;
+    position: absolute;
+    top: 0;
+    /*opacity: 0; goliz test*/
+    left: 0;
+    z-index: 0;
+    width: 100%;
+    margin-top: 10%;
+    text-align: center;
+
+}
+
+.Arrowleft, .ArrowRight {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    margin-top:-10px;
+    color: #fff;
+    padding: 0 5px;
+    text-align: center;
+    background-color: #aaa;
+    border-radius: 3px
+}
+
+.Arrowleft {
+    left: 10px;
+}
+
+.ArrowRight {
+    right: 10px;
+}
+
+
+
+.myHeaderSlides .HeaderSlidesTittle {
+    font-size: 50px;
+    font-weight: bolder;
+    color: #fff;
+    text-shadow: 2px 2px 4px #000;
+    display: block;
+    padding: 0 30px;
+}
+
+.myHeaderSlides .HeaderSlidesContent {
+    font-size: 16px;
+    font-weight: normal;
+    color: #fff;
+    display: block;
+    padding: 0 30px;
+}
+
+.HeaderSlidesLink {
+    display: inline-block;
+    padding-bottom: 10px;
+    color: #aefc99;
+    font-size: 14px;
+    font-weight: bold;
+    border-bottom: 2px solid #aefc99;
+    margin-top: 40px;
+    text-shadow: 1px 1px 1px #000;
+    text-decoration: none;
+}
+
+a.HeaderSlidesLink:hover {
+    text-decoration: none;
+    color: #24a000;
+    border-bottom-color: #24a000;
+}
+
+a.HeaderSlidesLink:visited {
+    text-decoration: none;
+    color: #aefc99;
+    border-bottom-color: #aefc99;
+}
+.DotsHolder {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    bottom: 20px;
+    left: 0;
+}
+
+    .DotsHolder .SliderDots {
+        display: inline-block;
+        padding: 7px;
+        border-radius: 50%;
+        border: 1px solid #fff;
+        background-color: none;
+        margin: 0 2px;
+        opacity: 0.7;
+        box-shadow: 0px 2px 3px #aaa;
+    }
+.activeDot {
+    background-color:#aaa !important;
+}
+
+.SliderDots:hover {
+    background-color: #aaa !important;
+}
+
+
+/*----------Header Slider-----------*/
+
+.SquersHolder {
+    padding-bottom: 60px;
+    margin-top: -7px;
+    text-align: center;
+}
+.ItemSquer {
+    display: inline-block;
+    border-bottom: 4px solid #eee;
+    background-color: #eee;
+    text-align: center;
+    margin: 0 3px 10px 3px;
+    box-shadow: 3px 3px 5px #ddd;
+}
+
+    .ItemSquer .ItemSquerInn {
+        display: inline-block;
+        padding: 40px 20px;
+
+    }
+
+    .ItemSquer .ItemSquerIcon {
+        display: inline-block;
+        width: 32px;
+        height: 32px;
+        background-position: center top;
+        background-repeat: no-repeat;
+    }
+    .ItemSquer  .tablet {
+        background-image: url(../Images/tablet32.png);
+    }
+
+    .ItemSquer .phone {
+        background-image: url(../Images/smartphone32.png);
+    }
+
+    .ItemSquer .accessories {
+        background-image: url(../Images/headphone32.png);
+    }
+
+    .ItemSquer .sale {
+        background-image: url(../Images/sale32.png);
+    }
+
+    .ItemSquer .ItemSquerTittle {
+        display: block;
+        padding: 15px 0;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        font-size: 14px;
+        font-weight: bold;
+        color: #000;
+        text-shadow: 1px 1px 2px #808080;
+    }
+
+    .ItemSquer .ItemSquerDec {
+        display: block;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        font-size: 12px;
+        font-weight: normal;
+        color: #000;
+        max-width: 150px;
+        height:45px;
+    }
+
+.GreenLine {
+    height: 2px;
+    display: block;
+    background-color: #24a000;
+}
+
+.SquersHolder a {
+   
+}
+
+
+.carousel-inner > .item > img, .carousel-inner > .item > a > img{height:300px !important;}
+
+
+/*----multi slide carousel-----*/
+
+@media (min-width: 768px) and (max-width: 991px) {
+    #myCarousel .carousel-inner .item .item-item:last-child {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    #mymyCarousel .carousel-inner {
+        height: 320px;
+    }
+}
+
+.carousel-inner {
+    overflow-y: hidden;
+}
+
+    .carousel-inner .active.left {
+        left: -25%;
+    }
+
+    .carousel-inner .next {
+        left: 25%;
+    }
+
+    .carousel-inner .prev {
+        left: -25%;
+    }
+
+.carousel-control {
+    width: 4%;
+}
+
+    .carousel-control.left, .carousel-control.right {
+        margin-left: 15px;
+        background-image: none;
+    }
+
+
+
+
+.carousel-control .icon-next, .carousel-control .glyphicon-chevron-right {
+    right: -60% !important;
+    color: #24a000;
+}
+
+.carousel-control .icon-prev, .carousel-control .glyphicon-chevron-left {
+    left: -110% !important;
+    color: #24a000;
+}
+
+
+.CarouselItemLink {
+    display: inline-block;
+    padding: 5px 10px;
+    color: #24a000;
+    border: 1px solid #24a000;
+    margin-top:25px;
+    background-color:#eee;
+   
+}
+
+    .CarouselItemLink:hover {
+        text-decoration: none;
+        background-color: #24a000 !important;
+        color: #fff !important;
+    }
+
+
+    .CarouselItemLink:visited {
+        text-decoration: none !important;
+        color: #24a000;
+    }
+        .CarouselItemDescription {
+        display: block;
+        color: #808080;
+        text-align: left;
+        padding:0;
+      
+    }
+.CarouselItemTittle {
+    display: block;
+    color: #808080;
+    text-align: left;
+    font-weight: bold;
+    padding: 15px 0;
+  
+}
+
+.CarouselMTittle {display:block;padding-bottom:40px;color:#000;font-size:20px; font-weight:bold; text-align:center;}
+#myCarousel {
+    background-color: #fff;
+    margin-bottom: -170px;
+    box-shadow: inset 0 0 10px #808080;
+    padding: 20px;
+}
+.item-item img {margin-left:auto; margin-right:auto;}
+.CircleOffer {
+    position: absolute;
+    height: 70px;
+    width: 70px;
+    background-color: #24a000;
+    border-radius: 50%;
+    display: inline-block;
+    color: #fff;
+    font-weight: bolder;
+    font-size: 12px;
+    right: 5px;
+    top: 5px;
+    padding: 20px 10px;
+    text-align: center;
+    z-index: 100;
+}
+
+.carousel-inner  .item-item {
+    position: relative
+}
+
+
+
+
+@media screen and (max-width: 650px) {
+
+    .myHeaderSlides .HeaderSlidesTittle {
+        font-size: 26px;
+    }
+
+    .myHeaderSlides {
+
+        margin-top:5%;
+    }
+
+    .HeaderSlidesLink {
+        margin-top:10px;
+        font-size:11px;
+        padding-bottom:5px;
+    }
+
+    .myHeaderSlides .HeaderSlidesContent {
+        font-size: 11px;
+    }
+}
+
