@@ -145,3 +145,84 @@ height:80px;
         border-color: #9d9d9d;
         background-color: #444;
     }
+
+
+.btnGreen {
+    background-color: #24a000 !important;
+    border-color: #1d9509 !important;
+    color:#fff;
+}
+
+.btnGreen:visited {
+    background-color: #24a000 !important;
+    border-color: #1d9509 !important;
+}
+
+.btnGreen:hover {
+    background-color: #2d8407 !important;
+    border-color: #1d9509 !important;
+}
+
+.lastRow li{
+    margin-top: 10px;
+}
+
+select
+ {
+    padding: 1px 15px;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius:3px;
+    border:1px solid #ddd;
+}
+
+.MyCheckbox {
+    font-weight: normal;
+    cursor: pointer;
+    margin: 0;
+    padding-top: 0 !important;
+}
+.MyCheckbox:after {
+    content: '';
+    display: table;
+    clear: both;
+}
+    .MyCheckbox .cr {
+        position: relative;
+        display: inline-block;
+        border: 1px solid #a9a9a9;
+        border-radius: .25em;
+        width: 1.3em;
+        height: 1.3em;
+        float: left;
+        margin-right: .5em;
+        color: #fff;
+    }
+
+.MyCheckbox .cr .cr-icon {
+        position: absolute;
+        font-size: .8em;
+        line-height: 0;
+        top: 50%;
+        left: 15%;
+    }
+input[type=checkbox] {
+ display:none;
+}
+
+.MyCheckbox input[type="checkbox"] + .cr > .cr-icon {
+    opacity: 0;
+}
+
+.MyCheckbox input[type="checkbox"]:checked + .cr  {
+    background-color: #24a000;
+   
+}
+.MyCheckbox input[type="checkbox"]:checked + .cr > .cr-icon {
+    opacity: 1;
+
+}
+
+.MyCheckbox input[type="checkbox"]:disabled + .cr {
+    opacity: .5;
+}
