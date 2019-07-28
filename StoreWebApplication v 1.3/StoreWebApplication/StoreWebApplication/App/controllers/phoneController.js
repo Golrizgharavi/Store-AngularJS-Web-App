@@ -88,7 +88,7 @@ app.controller('phoneController', function (productService) {
 
     vm.SearchPhoneByFilter = function () {
 
-        if (vm.minPrice > vm.maxPrice) {
+        if (parseInt(vm.minPrice, 10) > parseInt(vm.maxPrice, 10)) {
             alert("Minimum price should be less than maximum price! :)");
 
         } else {

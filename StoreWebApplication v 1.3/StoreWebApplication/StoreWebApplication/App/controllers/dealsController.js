@@ -1,14 +1,14 @@
 ﻿'use strict'
 
-app.controller('tabletController', function (productService) {
+app.controller('dealsController', function (productService) {
 
     var vm = this;
-    vm.message = "Welcome to Tablet Page";
+    vm.message = "Welcome to Deals";
     var $TemplateHolder = document.getElementById("ListContainerDiv");
     var $ObjTemplateHolder = $('#ListContainerDiv');
+  
 
-
-    var promiseGet = productService.GetPhoneListByType(2);
+    var promiseGet = productService.getDealsList('', null, null, null, null, null);
 
     vm.SetTemplate = function (myObjs) {
         var $myTemplate = "";
@@ -25,7 +25,7 @@ app.controller('tabletController', function (productService) {
                     '</p>' +
                     '</div>' +
                     '</div>' +
-                    '<a href="#/tablet/' + myObjs[i].Id + '" class="post-content" target="_blank">' +
+                    '<a href="#/' + myObjs[i].PrType+'/' + myObjs[i].Id + '" class="post-content" target="_blank">' +
                     '<p class="post-Descripton">' + myObjs[i].Summery
 
                 $myTemplate += (myObjs[i].Sale == 'True') ? '<span class="ColorBold">On Sale </span>' : '';
@@ -51,7 +51,7 @@ app.controller('tabletController', function (productService) {
                     '</p>' +
                     '</div>' +
                     '</div>' +
-                    '<a href="#/tablet/' + myObjs[i].Id + '" class="post-content" target="_blank">' +
+                    '<a href="#/' + myObjs[i].PrType +'/' + myObjs[i].Id + '" class="post-content" target="_blank">' +
                     '<p class="post-Descripton">' + myObjs[i].Summery;
 
                 $myTemplate += (myObjs[i].Sale == 'True') ? '<span class="ColorBold">On Sale </span>' : '';
@@ -64,7 +64,7 @@ app.controller('tabletController', function (productService) {
             }
         }
 
-        
+      
         $ObjTemplateHolder.animate({ 'opacity': 0 }, 400, function () {
             $(this).html($myTemplate).animate({ 'opacity': 1 }, 400);
         });
@@ -72,9 +72,9 @@ app.controller('tabletController', function (productService) {
 
 
     promiseGet.then(function (p1) {
-        vm.tablets = p1.data;
-        //alert(JSON.stringify(vm.tablets.Brds));
-        vm.SetTemplate(vm.tablets.DataArr);
+        vm.devices = p1.data;
+        //alert(JSON.stringify(vm.devices));
+        vm.SetTemplate(vm.devices.DataArr);
 
     },
 
@@ -83,23 +83,24 @@ app.controller('tabletController', function (productService) {
 
 
     vm.SearchPhoneByFilter = function () {
-
-        if (vm.minPrice > vm.maxPrice) {
+   
+        if (parseInt(vm.minPrice, 10) > parseInt(vm.maxPrice, 10)) {
+ 
             alert("Minimum price should be less than maximum price! :)");
 
         } else {
-            //alert(JSON.stringify(vm.Brd));
-            var GetSearchResult = productService.GetPhonesByFilter(vm.Name, 2, vm.OS, vm.Brd, vm.minPrice, vm.maxPrice);
+            //alert(JSON.stringify(vm.DevType));
+            var GetSearchResult = productService.getDealsList(vm.Name, vm.DevType, vm.OS, vm.Brd, vm.minPrice, vm.maxPrice);
             GetSearchResult.then(function (p1) {
-               // alert(JSON.stringify(p1.data));
-                vm.filteredTablets= p1.data;
-                if (vm.filteredTablets.length == 0)
+              //  alert(JSON.stringify(p1.data));
+                vm.filteredDevices = p1.data;
+                if (vm.filteredDevices.DataArr.length == 0)
 
                     $ObjTemplateHolder.animate({ 'opacity': 0 }, 400, function () {
                         $(this).html('<div class="alertMsg">OpPsSs!! There is no match! :)</div>').animate({ 'opacity': 1 }, 400);
                     });
                 else
-                    vm.SetTemplate(vm.filteredTablets);
+                    vm.SetTemplate(vm.filteredDevices.DataArr);
 
             },
 
@@ -109,13 +110,13 @@ app.controller('tabletController', function (productService) {
     };
 
     vm.resetForm = function () {
-  
+
         vm.Name = '';
         vm.OS = false;
         vm.Brd = false;
         vm.minPrice = '';
         vm.maxPrice = '';
-        vm.SetTemplate(vm.tablets.DataArr);
+        vm.SetTemplate(vm.devices.DataArr);
     };
 
 });
